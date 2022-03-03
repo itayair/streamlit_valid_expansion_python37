@@ -1,5 +1,6 @@
 altair==4.2.0
 argon2-cffi==21.3.0
+argon2-cffi-bindings==0.0.0
 astor==0.8.1
 attrs==21.4.0
 backcall==0.2.0
@@ -71,6 +72,8 @@ pyrsistent==0.18.1
 python-dateutil==2.8.2
 pytz==2021.3
 pytz-deprecation-shim==0.1.0.post0
+pywin32==303
+pywinpty==2.0.3
 pyzmq==22.3.0
 requests==2.27.1
 semver==2.13.0
@@ -104,4 +107,4 @@ webencodings==0.5.1
 widgetsnbextension==3.5.2
 yarg==0.1.9
 zipp==3.7.0
--i https://storage.googleapis.com/en_ud_model/en_ud_model_sm-2.0.0.tar.gz
+--extra-index-url https://storage.googleapis.com/en_ud_model/en_ud_model_sm-2.0.0.tar.gz
