@@ -4,4 +4,4 @@ import streamlit as st
 import subprocess
 import sys
 
-subprocess.run(["./Scripts/python", "streamlit_valid_expansion.py"])
+subprocess.run([f"{sys.executable}", "streamlit_valid_expansion.py"])
