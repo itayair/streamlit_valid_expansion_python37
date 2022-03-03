@@ -44,39 +44,39 @@ def process_text(head_word_index, text):
         valid_expansion_results.add(span)
     return list(valid_expansion_results)
 
+def main():
+
+    st.title("All Valid expansions in Noun phrase")
 
 
-st.title("All Valid expansions in Noun phrase")
+    st.header("Enter a sentence:")
+    text = st.text_area("", DEFAULT_TEXT)
+    nlp = load_model()
+    sentence_dep_graph = nlp(text)
+    noun_lst = get_noun_in_sentence(sentence_dep_graph)
+    attrs = ["valid expansion"]
+
+    st.header("Choose Noun to get all the valid expansions:")
+    buttons = []
+    word_to_noun_token = {}
+    idx = 1
+    button_to_noun_token = {}
+    c = st.columns(int(len(noun_lst) / 5) + 1)
+    for noun in noun_lst:
+        noun_button = str(idx) + ": " + noun.text
+        buttons.append((c[int((idx - 1) / 5)].button(noun_button), noun))
+        word_to_noun_token[noun_button] = noun
+        idx += 1
 
 
-st.header("Enter a sentence:")
-text = st.text_area("", DEFAULT_TEXT)
-nlp = load_model()
-sentence_dep_graph = nlp(text)
-noun_lst = get_noun_in_sentence(sentence_dep_graph)
-attrs = ["valid expansion"]
-
-st.header("Choose Noun to get all the valid expansions:")
-buttons = []
-word_to_noun_token = {}
-idx = 1
-button_to_noun_token = {}
-c = st.columns(int(len(noun_lst) / 5) + 1)
-for noun in noun_lst:
-    noun_button = str(idx) + ": " + noun.text
-    buttons.append((c[int((idx - 1) / 5)].button(noun_button), noun))
-    word_to_noun_token[noun_button] = noun
-    idx += 1
-
-
-for button, noun in buttons:
-    if button:
-        st.header(noun.text)
-        valid_expansion_results = process_text(noun.i, text)
-        df = pd.DataFrame(valid_expansion_results, columns=attrs)
-        dfStyler = df.style.set_properties(**{'text-align': 'left'})
-        dfStyler.set_table_styles([dict(selector='th', props=[('text-align', 'left')])])
-        st.dataframe(df)
+    for button, noun in buttons:
+        if button:
+            st.header(noun.text)
+            valid_expansion_results = process_text(noun.i, text)
+            df = pd.DataFrame(valid_expansion_results, columns=attrs)
+            dfStyler = df.style.set_properties(**{'text-align': 'left'})
+            dfStyler.set_table_styles([dict(selector='th', props=[('text-align', 'left')])])
+            st.dataframe(df)
 
 
 
