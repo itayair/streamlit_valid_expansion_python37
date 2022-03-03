@@ -7,6 +7,6 @@ import sys
 # cwd = os.getcwd()
 # print(cwd)
 
-subprocess.run(["../../streamlit_valid_expansion_python37/Scripts/python.exe", "streamlit_valid_expansion.py"])
+subprocess.run(["Scripts/python.exe", "streamlit_valid_expansion.py"])
 
 # p = subprocess.Popen([f"{sys.executable} -m streamlit_valid_expansion.py"],shell=True)
