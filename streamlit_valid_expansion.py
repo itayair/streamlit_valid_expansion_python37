@@ -14,8 +14,7 @@ def install(package):
         pip._internal.main(['install', package])
 
 # Example
-if __name__ == '__main__':
-    install("https://storage.googleapis.com/en_ud_model/en_ud_model_sm-2.0.0.tar.gz")
+install("https://storage.googleapis.com/en_ud_model/en_ud_model_sm-2.0.0.tar.gz")
 
 SPACY_MODEL_NAMES = ["en_core_sci_sm", "en_core_sci_md", "en_core_sci_lg"]
 NER_MODEL_NAMES = ["en_ner_craft_md", "en_ner_jnlpba_md", "en_ner_bc5cdr_md", "en_ner_bionlp13cg_md"]
