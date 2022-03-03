@@ -4,4 +4,7 @@ import streamlit as st
 import subprocess
 import sys
 
-subprocess.run([f"{sys.executable}", "streamlit_valid_expansion.py"])
+subprocess.run(["/home/appuser/venv/bin/python", "streamlit_valid_expansion.py"])
+
+# p = subprocess.Popen([f"{sys.executable} -m streamlit_valid_expansion.py"], shell=True)
+# p.run()
